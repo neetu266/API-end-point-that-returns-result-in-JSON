@@ -6,6 +6,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI(title="SHL Recommender API")
 
+@app.get("/")
+def root():
+    return {"status": "API is live"}
+
+
 # Load dataset
 df = pd.read_csv("SHL_TEST.csv")
 df.fillna("", inplace=True)
